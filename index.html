@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar ID</title>
+</head>
+<body>
+    <h1>Enviar ID</h1>
+    <form id="sendIdForm">
+        <label for="id">Ingrese ID:</label>
+        <input type="text" id="id" name="id" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        document.getElementById('sendIdForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const id = document.getElementById('id').value;
+            const url = `https://hosmer24.github.io/REGISTRO/?id=${id}`;
+            window.location.href = url;
+        });
+    </script>
+</body>
+</html>
