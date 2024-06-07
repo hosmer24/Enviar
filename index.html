@@ -1,31 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Simulador de Envío de ID</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar ID</title>
 </head>
 <body>
-    <h1>Simulador de Envío de ID</h1>
-    <form>
+    <h1>Enviar ID</h1>
+    <form id="idForm">
         <label for="id">ID:</label>
-        <input type="number" id="id" name="id"><br><br>
-        <input type="submit" value="Enviar ID">
+        <input type="text" id="id" name="id">
+        <button type="submit">Enviar</button>
     </form>
+
     <script>
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const id = document.getElementById('id').value;
-            const url = 'https://hosmer24.github.io/REGISTRO/?id=' + id;
-            fetch(url)
-                .then((response) => response.text())
-                .then((data) => {
-                    console.log(data);
-                    alert('ID enviado correctamente');
-                })
-                .catch((error) => {
-                    console.error(error);
-                    alert('Error al enviar el ID');
-                });
+        document.getElementById('idForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que se recargue la página
+            var id = document.getElementById('id').value;
+            window.location.href = 'https://hosmer24.github.io/REGISTRO/?id=' + encodeURIComponent(id);
         });
     </script>
 </body>
